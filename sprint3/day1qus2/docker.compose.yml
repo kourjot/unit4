@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "2828:2828"
+    depends_on:
+      - db
+  db:
+    image: mongo
+    volumes:
+      - db-data:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  db-data:
